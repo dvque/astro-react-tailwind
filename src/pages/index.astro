@@ -1,14 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import MyReactComponent from '../components/MyReactComponent.jsx';
+import Layout from "../layouts/Layout.astro";
+import MyReactComponent from "../components/MyReactComponent.jsx";
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1 class="text-3xl font-bold underline">
-			Hello world!
-			todo bien
-		  </h1>
-		  <MyReactComponent client:load />
+		<MyReactComponent client:load />
 	</main>
 </Layout>
