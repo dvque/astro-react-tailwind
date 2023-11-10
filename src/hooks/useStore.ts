@@ -13,6 +13,7 @@ function reducer(state: State, action: Action) {
     const { type } = action
 
     if (type === 'INTERCHANGE_LANGUAGES') {
+        console.log("Hemos llegado!")
         return {
             ...state,
             fromLanguage: state.toLanguage,

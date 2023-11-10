@@ -1,7 +1,7 @@
 import { useStore } from '../hooks/useStore'
 
 function App() {
-    const { fromLanguage, setFromLanguage } = useStore();
+    const { fromLanguage, toLanguage, interchangeLanguages } = useStore();
 
     return (
         <div className="App">
@@ -21,11 +21,15 @@ function App() {
                         <option>Option 1</option>
                         <option>Option 2</option>
                     </select>
-                    
+
                 </div>
                 <div className="mx-6">
-                    <i className="fas fa-exchange-alt"></i>
+                    <button onClick={interchangeLanguages}> click here!
+                        <i className="fas fa-exchange-alt"></i>
+                    </button>
+
                 </div>
+
                 <div className="w-1/3">
                     <select className="form-select block w-full border border-gray-200 rounded py-3 pr-2 pl-4">
                         <option>Option 1</option>
@@ -36,17 +40,17 @@ function App() {
 
             <div className="flex items-center justify-center mx-auto">
                 <div className="w-1/3">
-                {fromLanguage}
-                    
+                    {fromLanguage}
+
                 </div>
                 <div className="mx-6">
-                 
+
                 </div>
                 <div className="w-1/3">
-                    
+                    {toLanguage}
                 </div>
             </div>
-           
+
 
 
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
