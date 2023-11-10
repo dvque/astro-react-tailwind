@@ -1,3 +1,4 @@
+import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 
                 </div>
                 <div className="mx-6">
-                    <button onClick={interchangeLanguages}> click here!
+                    <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}>
                         <i className="fas fa-exchange-alt"></i>
                     </button>
 
