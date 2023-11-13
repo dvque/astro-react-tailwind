@@ -1,8 +1,9 @@
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
+import { LanguageSelector } from './LanguageSelector';
 
 function App() {
-    const { fromLanguage, toLanguage, interchangeLanguages } = useStore();
+    const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useStore();
 
     return (
         <div className="App">
@@ -16,50 +17,29 @@ function App() {
                 </div>
             </div>
 
-            <form className="flex items-center justify-center mx-auto">
-                <div className="w-1/3">
-                    <select className="form-select block w-full border border-gray-200 rounded py-3 px-4">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                    </select>
+            <div className="flex items-center justify-center mx-auto">
+                <LanguageSelector onChange={setFromLanguage} />
 
-                </div>
                 <div className="mx-6">
                     <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}>
                         <i className="fas fa-exchange-alt"></i>
                     </button>
-
                 </div>
 
-                <div className="w-1/3">
-                    <select className="form-select block w-full border border-gray-200 rounded py-3 pr-2 pl-4">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                    </select>
-                </div>
-            </form>
-
-            <div className="flex items-center justify-center mx-auto">
-                <div className="w-1/3">
-                    {fromLanguage}
-
-                </div>
-                <div className="mx-6">
-
-                </div>
-                <div className="w-1/3">
-                    {toLanguage}
-                </div>
+                <LanguageSelector onChange={setToLanguage} />
             </div>
 
+            <div className="flex items-center justify-center mx-auto">
+                <div> from: {fromLanguage}
+                    to: {toLanguage}</div>
+            </div>
 
-
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                onClick={() => { setFromLanguage('es') }}>
-                Cambiar a Español
-            </button>
         </div>
+
     )
+
+
+
 }
 
 export default App
