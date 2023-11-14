@@ -1,6 +1,7 @@
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
+import { SectionType } from './types';
 
 function App() {
     const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useStore();
@@ -18,7 +19,7 @@ function App() {
             </div>
 
             <div className="flex items-center justify-center mx-auto">
-                <LanguageSelector type='from' value={fromLanguage} onChange={setFromLanguage} />
+                <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
 
                 <div className="mx-6">
                     <button className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}>
@@ -26,7 +27,7 @@ function App() {
                     </button>
                 </div>
 
-                <LanguageSelector type='to' value={toLanguage} onChange={setToLanguage} />
+                <LanguageSelector type={SectionType.To} value={toLanguage} onChange={setToLanguage} />
             </div>
 
             <div className="flex items-center justify-center mx-auto">
