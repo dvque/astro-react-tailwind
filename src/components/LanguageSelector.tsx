@@ -1,10 +1,10 @@
 
 import { SUPPORTED_LANGUAGES } from "../hooks/constants"
-import type { Language } from "./types"
+import type { FromLanguage, Language } from "./types"
 
-interface Props {
-    onChange: (LANGUAGE: Language) => void
-}
+type Props =
+    | { type: 'from', value: FromLanguage, onChange: (language: FromLanguage) => void }
+    | { type: 'to', value: Language, onChange: (language: Language) => void }
 
 export const LanguageSelector = ({ onChange }: Props) => {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
