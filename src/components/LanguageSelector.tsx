@@ -1,13 +1,14 @@
 
 import { SUPPORTED_LANGUAGES } from "../hooks/constants"
+import type { Language } from "./types"
 
 interface Props {
-    onChange: (LANGUAGE: string) => void
+    onChange: (LANGUAGE: Language) => void
 }
 
 export const LanguageSelector = ({ onChange }: Props) => {
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        onChange(event.target.value)
+        onChange(event.target.value as Language)
     }
 
     return (
