@@ -14,12 +14,15 @@ export const LanguageSelector = ({ onChange, type, value }: Props) => {
     return (
         <form aria-aria-label='Selecciona el idioma' className="w-1/3">
             <select onChange={handleChange} value={value} className="form-select block w-full border border-gray-200 rounded py-3 px-4">
+
                 {type === 'from' && <option value={AUTO_LANGUAGE}>Detect language</option>}
+
                 {Object.entries(SUPPORTED_LANGUAGES).map(([key, value]) => (
                     <option key={key} value={key}>
                         {value}
                     </option>
                 ))}
+
             </select>
         </form>
     )
