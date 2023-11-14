@@ -1,6 +1,6 @@
 
 import { AUTO_LANGUAGE, SUPPORTED_LANGUAGES } from "../hooks/constants"
-import { type FromLanguage, type Language, SectionType } from "./types"
+import { type FromLanguage, type Language, SectionType } from "./types.d"
 
 type Props =
     | { type: SectionType.From, value: FromLanguage, onChange: (language: FromLanguage) => void }

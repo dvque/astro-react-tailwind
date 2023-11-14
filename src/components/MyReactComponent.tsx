@@ -1,7 +1,7 @@
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
-import { SectionType } from './types';
+import { SectionType } from './types.d';
 
 function App() {
     const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useStore();
