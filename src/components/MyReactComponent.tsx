@@ -1,10 +1,11 @@
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
+import { TextArea } from './TextArea';
 import { SectionType } from './types.d';
 
 function App() {
-    const { fromLanguage, toLanguage, interchangeLanguages, setFromLanguage, setToLanguage } = useStore();
+    const { fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
 
     return (
         <div className="App">
@@ -24,8 +25,6 @@ function App() {
                 </div>
             </div>
 
-
-
             <div className="flex items-center justify-center mx-auto">
 
                 <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
@@ -41,21 +40,19 @@ function App() {
 
             <div className="flex flex-row mt-5">
                 <div className="basis-1/2">
-                    <textarea
-                        id="about"
-                        name="about"
-                        rows={3}
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder='Introducir texto' autoFocus
-                        defaultValue={''}
-                    /></div>
+                    <TextArea
+                        type={SectionType.From}
+                        value={fromText}
+                        onChange={setFromText}
+                    />
+                </div>
                 <div className="basis-1/2">
-                    <textarea
-                        id="about"
-                        name="about"
-                        rows={3}
-                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        defaultValue={''}
-                    /></div>
+                    <TextArea
+                        type={SectionType.To}
+                        value={result}
+                        onChange={setResult}
+                    />
+                </div>
             </div>
         </div>
     )
