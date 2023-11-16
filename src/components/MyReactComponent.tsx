@@ -5,7 +5,7 @@ import { TextArea } from './TextArea';
 import { SectionType } from './types.d';
 
 function App() {
-    const { fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
+    const { loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
 
     return (
         <div className="App">
@@ -51,6 +51,7 @@ function App() {
                         type={SectionType.To}
                         value={result}
                         onChange={setResult}
+                        loading={loading}
                     />
                 </div>
             </div>
