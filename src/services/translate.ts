@@ -13,6 +13,7 @@ export async function translate({ fromLanguage, toLanguage, text }: {
     text: string
 }) {
 
+    // If the language is the same, return the text
     if (fromLanguage === toLanguage) return text;
 
     const fromCode = fromLanguage === 'auto' ? 'auto' : SUPPORTED_LANGUAGES[fromLanguage];

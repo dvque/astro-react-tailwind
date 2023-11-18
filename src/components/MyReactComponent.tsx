@@ -1,11 +1,25 @@
+import { useEffect } from 'react';
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
 import { TextArea } from './TextArea';
 import { SectionType } from './types.d';
+import { translate } from '../services/translate';
 
 function App() {
     const { loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
+
+    useEffect(() => {
+        if (fromText === '') return;
+
+        translate({ fromLanguage, toLanguage, text: fromText })
+            .then(result => {
+                // == check for null or undefined
+                if (result == null) return;
+                setResult(result)
+            })
+            .catch(error => { setResult('Error') })
+    }, [fromText])
 
     return (
         <div className="App">
