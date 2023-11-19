@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useDebounce } from '../hooks/useDebounce';
 import { AUTO_LANGUAGE } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
@@ -9,17 +10,19 @@ import { translate } from '../services/translate';
 function App() {
     const { loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
 
-    useEffect(() => {
-        if (fromText === '') return;
+    const debouncedFromText = useDebounce(fromText);
 
-        translate({ fromLanguage, toLanguage, text: fromText })
+    useEffect(() => {
+        if (debouncedFromText === '') return;
+
+        translate({ fromLanguage, toLanguage, text: debouncedFromText })
             .then(result => {
                 // == check for null or undefined
                 if (result == null) return;
                 setResult(result)
             })
             .catch(error => { setResult('Error') })
-    }, [fromText, fromLanguage, toLanguage])
+    }, [debouncedFromText, fromLanguage, toLanguage])
 
     return (
         <div className="App">
