@@ -3,6 +3,7 @@ import { OpenAI } from "openai";
 import { SUPPORTED_LANGUAGES } from '../hooks/constants';
 import type { FromLanguage, Language } from '../components/types.d';
 
+// OpenAI API
 const openai = new OpenAI({
     apiKey: import.meta.env.VITE_OPENAI_API_KEY,
 });
