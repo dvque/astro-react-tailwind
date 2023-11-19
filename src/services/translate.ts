@@ -5,7 +5,7 @@ import type { FromLanguage, Language } from '../components/types.d';
 
 // OpenAI API
 const openai = new OpenAI({
-    apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+    apiKey: import.meta.env.PUBLIC_POKEAPI, dangerouslyAllowBrowser: true
 });
 
 export async function translate({ fromLanguage, toLanguage, text }: {

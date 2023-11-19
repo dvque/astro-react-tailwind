@@ -19,7 +19,7 @@ function App() {
                 setResult(result)
             })
             .catch(error => { setResult('Error') })
-    }, [fromText])
+    }, [fromText, fromLanguage, toLanguage])
 
     return (
         <div className="App">
