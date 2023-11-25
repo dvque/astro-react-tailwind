@@ -1,6 +1,4 @@
-# Project Name
-
-ChatGPT Traductor
+# ChatGPT Traductor
 
 Harnessing the power of advanced AI technology to break down language barriers, enhance cross-cultural communication, and create a more interconnected global community through seamless language translation.
 
