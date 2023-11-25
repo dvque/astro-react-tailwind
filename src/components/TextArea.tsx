@@ -10,7 +10,7 @@ interface Props {
 const commonStyles = {}
 
 const getPlaceholder = ({ type, loading }: { type: SectionType, loading?: boolean }) => {
-    if (type === SectionType.From) return 'Introducte texto'
+    if (type === SectionType.From) return 'Introducir texto...'
     if (loading) return 'Traduciendo...'
     return 'Traducción'
 }
