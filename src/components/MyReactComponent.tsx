@@ -24,6 +24,11 @@ function App() {
             .catch(error => { setResult('Error') })
     }, [debouncedFromText, fromLanguage, toLanguage])
 
+    const handleClipboard = () => {
+        console.log(result)
+        navigator.clipboard.writeText(result)
+    }
+
     return (
         <div className="App">
 
@@ -70,6 +75,10 @@ function App() {
                         onChange={setResult}
                         loading={loading}
                     />
+                    <button className="rounded-md px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={handleClipboard}>
+                        <i className="fas fa-clipboard"></i>
+                    </button>
                 </div>
             </div>
         </div>
