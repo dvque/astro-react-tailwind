@@ -30,7 +30,7 @@ function reducer(state: State, action: Action) {
 
     if (type === 'SET_FROM_LANGUAGE') {
 
-        if (state.fromLanguage === action.payload) return state
+        if (state.fromLanguage === action.payload || state.toLanguage === action.payload) return state
         const loading = state.fromText !== ''
 
         return {
@@ -43,7 +43,8 @@ function reducer(state: State, action: Action) {
 
     if (type === 'SET_TO_LANGUAGE') {
 
-        if (state.toLanguage === action.payload) return state
+        console.log(action.payload)
+        if (state.toLanguage === action.payload || state.fromLanguage === action.payload) return state
         const loading = state.fromText !== ''
 
         return {

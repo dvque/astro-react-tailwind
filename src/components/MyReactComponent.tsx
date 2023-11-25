@@ -49,13 +49,12 @@ function App() {
             <div className="bg-white py-12 ">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl lg:text-center">
-                        <h2 className="text-base font-semibold leading-7 text-indigo-600">ChatGPT Traductor</h2>
+                        <h2 className="text-base font-semibold leading-7 text-indigo-600">Language Translation</h2>
                         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            Everything you need to deploy your app
+                            ChatGPT Traductor
                         </p>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
-                            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-                            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+                            Harnessing the power of advanced AI technology to break down language barriers, enhance cross-cultural communication, and create a more interconnected global community through seamless language translation.
                         </p>
                     </div>
                 </div>
