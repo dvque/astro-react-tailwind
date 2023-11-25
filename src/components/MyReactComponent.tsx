@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
-import { AUTO_LANGUAGE } from '../hooks/constants';
+import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGES } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
 import { LanguageSelector } from './LanguageSelector';
 import { TextArea } from './TextArea';
@@ -25,8 +25,13 @@ function App() {
     }, [debouncedFromText, fromLanguage, toLanguage])
 
     const handleClipboard = () => {
-        console.log(result)
         navigator.clipboard.writeText(result)
+    }
+
+    const handleVolume = () => {
+        const utteration = new SpeechSynthesisUtterance(result);
+        utteration.lang = VOICE_FOR_LANGUAGES[toLanguage];
+        speechSynthesis.speak(utteration);
     }
 
     return (
@@ -78,6 +83,10 @@ function App() {
                     <button className="rounded-md px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={handleClipboard}>
                         <i className="fas fa-clipboard"></i>
+                    </button>
+                    <button className="rounded-md px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={handleVolume}>
+                        <i className="fas fa-volume-up"></i>
                     </button>
                 </div>
             </div>
