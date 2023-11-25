@@ -59,6 +59,7 @@ You can install these packages by running the following command:
 
 ```javascript
 npm install vitest happy-dom @testing-library/react @testing-library/user-event -D
+````
 
 ## Contributing
 
