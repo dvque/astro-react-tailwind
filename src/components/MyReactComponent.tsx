@@ -65,7 +65,7 @@ function App() {
                 <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
 
                 <div className="mx-6">
-                    <button className="rounded-md  px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={() => {
+                    <button className="inline-flex justify-center items-center mt-1 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-200 w-8 h-8" disabled={fromLanguage === AUTO_LANGUAGE} onClick={() => {
                         interchangeLanguages();
                         setIsInterchangeClicked(true);
                     }}>
@@ -91,16 +91,19 @@ function App() {
                         onChange={setResult}
                         loading={loading}
                     />
-                    <button className="rounded-md px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    <button className="inline-flex justify-center items-center mt-1 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-200 w-8 h-8"
                         onClick={handleClipboard}>
                         <i className="fas fa-clipboard"></i>
                     </button>
-                    <button className="rounded-md px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    <button className="inline-flex justify-center items-center mt-1 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-200 w-8 h-8"
                         onClick={handleVolume}>
                         <i className="fas fa-volume-up"></i>
                     </button>
+
                 </div>
             </div>
+
+
         </div>
     )
 }
