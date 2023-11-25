@@ -78,14 +78,14 @@ function App() {
             </div>
 
             <div className="flex flex-row mt-5">
-                <div className="basis-1/2">
+                <div className="basis-1/2 pl-5">
                     <TextArea
                         type={SectionType.From}
                         value={fromText}
                         onChange={setFromText}
                     />
                 </div>
-                <div className="basis-1/2">
+                <div className="basis-1/2 pr-5">
                     <TextArea
                         type={SectionType.To}
                         value={result}
