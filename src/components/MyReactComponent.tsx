@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDebounce } from '../hooks/useDebounce';
 import { AUTO_LANGUAGE, VOICE_FOR_LANGUAGES } from '../hooks/constants';
 import { useStore } from '../hooks/useStore'
@@ -10,10 +10,19 @@ import { translate } from '../services/translate';
 function App() {
     const { loading, fromLanguage, toLanguage, fromText, result, interchangeLanguages, setFromLanguage, setToLanguage, setFromText, setResult } = useStore();
 
+    const [isInterchangeClicked, setIsInterchangeClicked] = useState(false);
+
+
     const debouncedFromText = useDebounce(fromText);
 
     useEffect(() => {
         if (debouncedFromText === '') return;
+
+        // If the interchange button was clicked, we don't want to translate the text
+        if (isInterchangeClicked) {
+            setIsInterchangeClicked(false); // Reset the state variable for the next render
+            return;
+        }
 
         translate({ fromLanguage, toLanguage, text: debouncedFromText })
             .then(result => {
@@ -57,7 +66,10 @@ function App() {
                 <LanguageSelector type={SectionType.From} value={fromLanguage} onChange={setFromLanguage} />
 
                 <div className="mx-6">
-                    <button className="rounded-md  px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={interchangeLanguages}>
+                    <button className="rounded-md  px-3.5 py-2.5 text-sm font-semibold t hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled={fromLanguage === AUTO_LANGUAGE} onClick={() => {
+                        interchangeLanguages();
+                        setIsInterchangeClicked(true);
+                    }}>
                         <i className="fas fa-exchange-alt"></i>
                     </button>
                 </div>
