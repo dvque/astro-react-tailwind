@@ -39,6 +39,11 @@ Harnessing the power of advanced AI technology to break down language barriers, 
 1. Clone the repository.
 2. Install the required dependencies using `npm install`.
 
+To create a new Astro project with the React framework, you can use the create-astro command:
+```
+npx create-astro my-astro-project --template react
+```
+
 ## Usage
 
 1. Run the application using `npm run dev`.
