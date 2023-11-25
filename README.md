@@ -41,7 +41,7 @@ Harnessing the power of advanced AI technology to break down language barriers, 
 
 To create a new Astro project with the React framework, you can use the create-astro command:
 ```
-npx create-astro my-astro-project --template react
+npm create astro@latest
 ```
 
 ## Usage
